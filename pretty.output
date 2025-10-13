@@ -1,0 +1,12 @@
+@scrape
+Feature: Scrape key SEO elements for auditing # tests/features/scrape/seo_scrape.feature:2
+  Collect page titles, H1-H3, and canonical links for a set of URLs.
+  Scenario: Scrape SEO elements from pages                 # tests/features/scrape/seo_scrape.feature:5
+    Given I plan to scrape these paths                     # tests/features/steps/common_steps.py:99
+      | path       |
+      | /          |
+      | /about     |
+      | /solutions |
+    When I scrape the pages                                # tests/features/steps/common_steps.py:104
+    Then I export the results to "artifacts/seo_audit.csv" # tests/features/steps/common_steps.py:128
+
