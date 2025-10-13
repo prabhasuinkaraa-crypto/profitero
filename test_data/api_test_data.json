@@ -1,0 +1,198 @@
+{
+  "authentication": {
+    "valid_credentials": [
+      {
+        "username": "test_user",
+        "password": "TestPass123!",
+        "api_key": "test_api_key_12345",
+        "role": "admin"
+      },
+      {
+        "username": "demo_user",
+        "password": "DemoPass456!",
+        "api_key": "demo_api_key_67890",
+        "role": "user"
+      }
+    ],
+    "invalid_credentials": [
+      {
+        "username": "invalid_user",
+        "password": "wrong_password",
+        "api_key": "invalid_key"
+      },
+      {
+        "username": "",
+        "password": "",
+        "api_key": ""
+      },
+      {
+        "username": "test_user",
+        "password": "wrong_password",
+        "api_key": "test_api_key_12345"
+      }
+    ]
+  },
+  "api_endpoints": {
+    "public_endpoints": [
+      "/health",
+      "/status",
+      "/version",
+      "/docs"
+    ],
+    "authenticated_endpoints": [
+      "/products",
+      "/services",
+      "/users",
+      "/analytics",
+      "/reports"
+    ],
+    "admin_endpoints": [
+      "/admin/users",
+      "/admin/settings",
+      "/admin/logs",
+      "/admin/metrics"
+    ]
+  },
+  "request_payloads": {
+    "create_user": {
+      "valid": {
+        "username": "new_user",
+        "email": "new.user@example.com",
+        "password": "NewPass123!",
+        "first_name": "New",
+        "last_name": "User",
+        "role": "user"
+      },
+      "invalid": [
+        {
+          "username": "",
+          "email": "invalid-email",
+          "password": "123",
+          "first_name": "",
+          "last_name": "",
+          "role": "invalid_role"
+        },
+        {
+          "username": "existing_user",
+          "email": "existing@example.com",
+          "password": "ExistingPass123!",
+          "first_name": "Existing",
+          "last_name": "User",
+          "role": "user"
+        }
+      ]
+    },
+    "update_product": {
+      "valid": {
+        "name": "Updated Product Name",
+        "description": "Updated product description",
+        "category": "analytics",
+        "status": "active"
+      },
+      "invalid": [
+        {
+          "name": "",
+          "description": "",
+          "category": "invalid_category",
+          "status": "invalid_status"
+        }
+      ]
+    }
+  },
+  "query_parameters": {
+    "pagination": {
+      "valid": [
+        {"page": 1, "limit": 10},
+        {"page": 2, "limit": 25},
+        {"page": 1, "limit": 100}
+      ],
+      "invalid": [
+        {"page": -1, "limit": 10},
+        {"page": 1, "limit": -5},
+        {"page": "invalid", "limit": "invalid"},
+        {"page": 0, "limit": 0},
+        {"page": 999999, "limit": 999999}
+      ]
+    },
+    "filters": {
+      "valid": [
+        {"category": "analytics"},
+        {"status": "active"},
+        {"name": "digital"},
+        {"created_after": "2023-01-01"},
+        {"created_before": "2024-12-31"}
+      ],
+      "invalid": [
+        {"category": "nonexistent_category"},
+        {"status": "invalid_status"},
+        {"created_after": "invalid_date"},
+        {"created_before": "not_a_date"},
+        {"invalid_filter": "value"}
+      ]
+    }
+  },
+  "response_schemas": {
+    "user": {
+      "required_fields": ["id", "username", "email", "first_name", "last_name", "role", "created_at"],
+      "optional_fields": ["phone", "company", "last_login", "updated_at"]
+    },
+    "product": {
+      "required_fields": ["id", "name", "description", "category", "status", "created_at"],
+      "optional_fields": ["features", "pricing", "target_audience", "updated_at"]
+    },
+    "error": {
+      "required_fields": ["error", "message"],
+      "optional_fields": ["code", "details", "timestamp"]
+    },
+    "pagination": {
+      "required_fields": ["page", "limit", "total", "pages"],
+      "optional_fields": ["next", "previous", "first", "last"]
+    }
+  },
+  "performance_benchmarks": {
+    "response_times": {
+      "health_check": {"max": 1.0, "target": 0.5},
+      "list_products": {"max": 3.0, "target": 1.5},
+      "get_product": {"max": 2.0, "target": 1.0},
+      "create_product": {"max": 5.0, "target": 2.0},
+      "update_product": {"max": 3.0, "target": 1.5},
+      "delete_product": {"max": 2.0, "target": 1.0}
+    },
+    "concurrent_users": {
+      "light_load": 5,
+      "medium_load": 20,
+      "heavy_load": 50,
+      "stress_test": 100
+    },
+    "rate_limits": {
+      "authenticated": {"requests_per_minute": 1000},
+      "unauthenticated": {"requests_per_minute": 100},
+      "admin": {"requests_per_minute": 2000}
+    }
+  },
+  "security_test_payloads": {
+    "sql_injection": [
+      "'; DROP TABLE users; --",
+      "1' OR '1'='1",
+      "admin'--",
+      "' UNION SELECT * FROM users --"
+    ],
+    "xss_payloads": [
+      "<script>alert('xss')</script>",
+      "javascript:alert('xss')",
+      "<img src=x onerror=alert('xss')>",
+      "';alert('xss');//"
+    ],
+    "command_injection": [
+      "; ls -la",
+      "| cat /etc/passwd",
+      "&& whoami",
+      "`id`"
+    ],
+    "path_traversal": [
+      "../../../etc/passwd",
+      "..\\..\\..\\windows\\system32\\drivers\\etc\\hosts",
+      "....//....//....//etc/passwd"
+    ]
+  }
+}

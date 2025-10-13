@@ -1,0 +1,146 @@
+{
+  "sample_products": [
+    {
+      "id": "prod_001",
+      "name": "Digital Shelf Analytics",
+      "description": "Comprehensive digital shelf monitoring and analytics platform",
+      "category": "analytics",
+      "features": [
+        "Real-time monitoring",
+        "Competitor analysis",
+        "Price tracking",
+        "Inventory management",
+        "Performance insights"
+      ],
+      "pricing": {
+        "tier": "enterprise",
+        "price_range": "$5000-$15000/month"
+      },
+      "target_audience": "Large retailers and brands",
+      "status": "active"
+    },
+    {
+      "id": "prod_002",
+      "name": "Sales & Share Intelligence",
+      "description": "Advanced sales analytics and market share tracking solution",
+      "category": "intelligence",
+      "features": [
+        "Market share analysis",
+        "Sales performance tracking",
+        "Competitive intelligence",
+        "Revenue optimization",
+        "Custom reporting"
+      ],
+      "pricing": {
+        "tier": "professional",
+        "price_range": "$2000-$8000/month"
+      },
+      "target_audience": "Mid to large enterprises",
+      "status": "active"
+    },
+    {
+      "id": "prod_003",
+      "name": "Content Optimizer",
+      "description": "AI-powered content optimization for eCommerce platforms",
+      "category": "optimization",
+      "features": [
+        "AI content generation",
+        "SEO optimization",
+        "A/B testing",
+        "Performance analytics",
+        "Multi-platform support"
+      ],
+      "pricing": {
+        "tier": "standard",
+        "price_range": "$1000-$5000/month"
+      },
+      "target_audience": "eCommerce businesses",
+      "status": "active"
+    },
+    {
+      "id": "prod_004",
+      "name": "Shelf Intelligent Media",
+      "description": "Intelligent media buying and optimization platform",
+      "category": "media",
+      "features": [
+        "Automated bidding",
+        "Campaign optimization",
+        "Cross-platform management",
+        "ROI tracking",
+        "Budget optimization"
+      ],
+      "pricing": {
+        "tier": "premium",
+        "price_range": "$3000-$12000/month"
+      },
+      "target_audience": "Digital marketing agencies",
+      "status": "active"
+    },
+    {
+      "id": "prod_005",
+      "name": "Autopilot",
+      "description": "Automated eCommerce management and optimization",
+      "category": "automation",
+      "features": [
+        "Automated pricing",
+        "Inventory management",
+        "Campaign automation",
+        "Performance monitoring",
+        "Rule-based actions"
+      ],
+      "pricing": {
+        "tier": "enterprise",
+        "price_range": "$4000-$10000/month"
+      },
+      "target_audience": "Enterprise retailers",
+      "status": "beta"
+    }
+  ],
+  "test_scenarios": {
+    "search_terms": [
+      "digital",
+      "analytics",
+      "optimization",
+      "intelligence",
+      "media",
+      "automation",
+      "shelf",
+      "sales",
+      "content"
+    ],
+    "filter_categories": [
+      "analytics",
+      "intelligence",
+      "optimization",
+      "media",
+      "automation"
+    ],
+    "pricing_tiers": [
+      "standard",
+      "professional",
+      "premium",
+      "enterprise"
+    ],
+    "status_options": [
+      "active",
+      "beta",
+      "deprecated",
+      "coming_soon"
+    ]
+  },
+  "invalid_products": [
+    {
+      "id": "",
+      "name": "",
+      "description": "",
+      "category": "invalid_category",
+      "features": [],
+      "pricing": {
+        "tier": "invalid_tier",
+        "price_range": "invalid_price"
+      },
+      "target_audience": "",
+      "status": "invalid_status"
+    }
+  ]
+}
